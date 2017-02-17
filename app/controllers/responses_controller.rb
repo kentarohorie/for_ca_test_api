@@ -1,6 +1,6 @@
 class ResponsesController < ApplicationController
   def series
-    if params[:op] != "or" and params[:op] != "and"
+    if params[:op] != "or" and params[:op] != "and" and params[:op] != nil
       @response = {
         status: 400
       }
