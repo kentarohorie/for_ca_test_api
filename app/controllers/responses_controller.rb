@@ -16,6 +16,15 @@ class ResponsesController < ApplicationController
   end
 
   def channel_schedules
+    @news = ChannelSchedule.where(channel: "Newsチャンネル").order("start_at ASC")
+    @anime = ChannelSchedule.where(channel: "アニメチャンネル").order("start_at ASC")
+    @bara = ChannelSchedule.where(channel: "バラエティチャンネル").order("start_at ASC")
+    @response = {
+      "Newsチャンネル": @news,
+      "バラエティチャンネル": @bara,
+      "アニメチャンネル": @anime
+    }
+    render json: @response
   end
 
   def channel_schedules_show
