@@ -7,11 +7,10 @@ class ResponsesController < ApplicationController
       render json: @response
     else
       if params[:op] == "or"
-        @series = Series.where("name like '%#{params[:name]}%' OR casts like '%#{params[:casts]}%' OR crews like '%#{params[:crews]}%'")
+        @series = Series.where("name like '%#{params[:name]}%' OR casts like '%#{params[:casts]}%' OR crews like '%#{params[:crews]}%'").order("name ASC")
       else
-        @series = Series.where("name like '%#{params[:name]}%' AND casts like '%#{params[:casts]}%' AND crews like '%#{params[:crews]}%'")
+        @series = Series.where("name like '%#{params[:name]}%' AND casts like '%#{params[:casts]}%' AND crews like '%#{params[:crews]}%'").order("name ASC")
       end
-        @series.order("name ASC")
         render json: @series
     end
   end
