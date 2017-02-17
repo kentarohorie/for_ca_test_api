@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: for_ca_test_api_production
-  username: for_ca_test_api
-  password: <%= ENV['FOR_CA_TEST_API_DATABASE_PASSWORD'] %>
+  username:
+  password:
